@@ -5,8 +5,8 @@ pipeline {
       }
     }
     environment {
-        AWS_ACCOUNT_ID="516627408046"
-        AWS_DEFAULT_REGION="us-east-1"
+        AWS_ACCOUNT_ID="100682590469"
+        AWS_DEFAULT_REGION="us-west-1"
         CLUSTER_NAME="ecs"
         SERVICE_NAME="ecs"
         TASK_DEFINITION_NAME="ecs"
@@ -14,7 +14,6 @@ pipeline {
         IMAGE_REPO_NAME="ecs"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	      registryCredential = "dex-aws"
     }
    
     stages {
@@ -23,8 +22,9 @@ pipeline {
     stage('Unit Tests') {
       steps{
         script {
+          sh ''
           sh 'npm install'
-	  sh 'npm test -- --watchAll=false'
+	        sh 'npm test -- --watchAll=false'
         }
       }
     }
