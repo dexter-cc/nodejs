@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-      ecs {
-        inheritFrom 'build-example'
-      }
-    }
+    agent any
     environment {
         AWS_ACCOUNT_ID="100682590469"
         AWS_DEFAULT_REGION="us-west-1"
