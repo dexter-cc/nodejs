@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    tools {nodejs "NPM"}
     environment {
         HOME= '.'
         AWS_ACCOUNT_ID="100682590469"
