@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
+    }
     environment {
         AWS_ACCOUNT_ID="100682590469"
         AWS_DEFAULT_REGION="us-west-1"
