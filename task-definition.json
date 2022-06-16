@@ -1,10 +1,10 @@
 {
-    "family": ecs,
+    "family": "ecs",
     "containerDefinitions": [
         {
             "image": "REPOSITORY_URI:BUILD_NUMBER",
-            "name": ecs,
-	    "essential": true,
+            "name": "ecs",
+	        "essential": true,
             "portMappings": [
                 {
                     "containerPort": 3000,
@@ -16,8 +16,8 @@
     "cpu": "256",
     "memory": "512",
     "requiresCompatibilities": [
-             "FARGATE"
+            "FARGATE"
     ],
     "networkMode": "awsvpc",
-    "executionRoleArn": arn:aws:iam::100682590469:role/ecsTaskExecutionRole 
+    "executionRoleArn": "arn:aws:iam::100682590469:role/ecsTaskExecutionRole" 
 }
