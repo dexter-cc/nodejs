@@ -1,16 +1,20 @@
 pipeline {
-    agent any
+    agent {
+      ecs {
+        inheritFrom 'build-example'
+      }
+    }
     environment {
-        AWS_ACCOUNT_ID="CHANGE_ME"
-        AWS_DEFAULT_REGION="CHANGE_ME" 
-	CLUSTER_NAME="CHANGE_ME"
-	SERVICE_NAME="CHANGE_ME"
-	TASK_DEFINITION_NAME="CHANGE_ME"
-	DESIRED_COUNT="CHANGE_ME"
-        IMAGE_REPO_NAME="CHANGE_ME"
+        AWS_ACCOUNT_ID="516627408046"
+        AWS_DEFAULT_REGION="us-east-1"
+        CLUSTER_NAME="ecs"
+        SERVICE_NAME="ecs"
+        TASK_DEFINITION_NAME="ecs"
+        DESIRED_COUNT="2"
+        IMAGE_REPO_NAME="ecs"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	registryCredential = "CHANGE_ME"
+	      registryCredential = "dex-aws"
     }
    
     stages {
